@@ -1385,6 +1385,7 @@ body:has(#tabTextScanner.active) .bg-gradient {
   .main {
     grid-template-columns: 1fr;
     padding: 1rem;
+    gap: 1.2rem;
   }
 
   .panels-column {
@@ -1392,15 +1393,96 @@ body:has(#tabTextScanner.active) .bg-gradient {
   }
 
   .header {
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1.2rem;
   }
 
   .video-container {
     aspect-ratio: 16 / 10;
   }
 
-  .mode-tabs-5 {
-    grid-template-columns: 1fr 1fr 1fr;
+  /* Horizontally scrollable tabs on tablet/mobile to prevent grid warping */
+  .mode-tabs.mode-tabs-5 {
+    display: flex !important;
+    grid-template-columns: none !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.4rem;
+    border-radius: var(--radius-sm);
+    padding: 0.35rem;
+    white-space: nowrap;
+  }
+
+  .mode-tabs.mode-tabs-5::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mode-tab {
+    flex: 0 0 auto;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .mode-tab.active {
+    transform: none; /* Disable distracting transform on tap */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 13px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    text-align: center;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .header-right-controls {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+
+  .cam-source-toggle,
+  .a11y-toggles,
+  .theme-switcher {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .cam-btn,
+  .a11y-toggle-btn,
+  .theme-chip {
+    flex: 1 !important;
+    text-align: center !important;
+    font-size: 0.65rem !important;
+    padding: 0.3rem 0.5rem !important;
+  }
+
+  .header-status {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 0.1rem;
+  }
+
+  .video-container {
+    aspect-ratio: 4 / 3; /* Better fit for mobile portrait screens */
+  }
+
+  .panel {
+    padding: 1.1rem 1.2rem;
   }
 }
 
