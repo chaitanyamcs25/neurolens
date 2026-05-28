@@ -197,8 +197,19 @@ DOM.modeTabs.addEventListener('click', (e) => {
   const tab = e.target.closest('.mode-tab');
   if (tab && tab.dataset.mode) {
     switchMode(tab.dataset.mode);
+    // Sync mobile dropdown
+    const dropdown = document.getElementById('modeDropdown');
+    if (dropdown) dropdown.value = tab.dataset.mode;
   }
 });
+
+// ── Mobile Mode Dropdown ──
+const modeDropdown = document.getElementById('modeDropdown');
+if (modeDropdown) {
+  modeDropdown.addEventListener('change', (e) => {
+    switchMode(e.target.value);
+  });
+}
 
 // ── JSON Toggle ──
 DOM.jsonToggle.addEventListener('click', () => {

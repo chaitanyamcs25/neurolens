@@ -200,7 +200,7 @@
     <!-- Analysis Panels -->
     <aside class="panels-column">
 
-      <!-- Mode Selector Tabs -->
+      <!-- Mode Selector Tabs (desktop) -->
       <div class="mode-tabs mode-tabs-5" id="modeTabs">
         <button class="mode-tab active" data-mode="emotion" id="tabEmotion">
           <span class="tab-label">Emotion</span>
@@ -217,6 +217,21 @@
         <button class="mode-tab" data-mode="textscanner" id="tabTextScanner">
           <span class="tab-label">Text Scanner</span>
         </button>
+      </div>
+
+      <!-- Mode Selector Dropdown (mobile only) -->
+      <div class="mobile-mode-select" id="mobileModeSelect">
+        <label class="mobile-mode-label" for="modeDropdown">Analysis Mode</label>
+        <div class="mobile-mode-dropdown-wrapper">
+          <select class="mobile-mode-dropdown" id="modeDropdown">
+            <option value="emotion" selected>😄 Emotion Detection</option>
+            <option value="focus">🎯 Focus / Attention</option>
+            <option value="sign">🤟 Sign Language</option>
+            <option value="neurolens">🚧 Obstacle Detection</option>
+            <option value="textscanner">📝 Text Scanner</option>
+          </select>
+          <span class="mobile-mode-arrow">▾</span>
+        </div>
       </div>
 
       <!-- Emotion Panel -->
